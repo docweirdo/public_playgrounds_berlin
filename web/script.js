@@ -9,12 +9,12 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 
 let fetch_LORs = async () => {
 
-    let response = await fetch('../assets/lor_2021_rewound.geojson')
+    let response = await fetch('https://dl.dropbox.com/s/vrb9cc5pv12rj17/lor_2021_rewound.geojson?dl=1')
         .then(res => res.text());
     
     let LORs = JSON.parse(response);
 
-    response = await fetch('../assets/playgrounds_wfs_rewound_transformed.geojson')
+    response = await fetch('https://dl.dropbox.com/s/ho9co34uutkxqt3/playgrounds_wfs_rewound_transformed.geojson?dl=0')
     .then(res => res.text());
 
     let playgrounds = JSON.parse(response);
@@ -36,7 +36,6 @@ let fetch_LORs = async () => {
         }
     }).addTo(map);
 
-    console.log(playgrounds)
     L.geoJSON(playgrounds).addTo(map);
 
 }
@@ -68,10 +67,6 @@ function get_max_min(geoJSON) {
             min = val
         }
     
-        if (feature.properties.PLR_ID === '01100416'){
-            console.log(feature.properties.PLR_ID)
-            console.log(get_color(feature.properties.GROESSE_M2, 133642.042, 23734915.62))
-        }
     }
 
     return [min, max]
