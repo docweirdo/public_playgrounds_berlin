@@ -98,6 +98,7 @@ lors['pl_area_per_child'] = lors['playground_area'] / lors['total_children']
 ax = sns.boxplot(lors, x='pl_area_per_child')
 
 ax.set(xlabel='Playarea per child [m²]')
+plt.xlim(-0.1, None)
 
 fig = plt.gcf().get_figure()
 fig.suptitle('Distribution of playarea per child across all PLRs')

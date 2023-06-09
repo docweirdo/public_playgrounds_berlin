@@ -42,7 +42,7 @@ function get_color(value) {
     else if (value>4.14) return '#FED976'
     else if (value>2.85) return '#feb24c'
     else if (value>1.55) return '#fd8d3c'
-    else if (value>0) return '#f03b20'
+    else if (value>=0) return '#f03b20'
     else return '#808080'
     
 

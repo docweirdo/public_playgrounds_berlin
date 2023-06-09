@@ -15,10 +15,10 @@ playgrounds.index.names = ['playground_id']
 
 print(playgrounds[playgrounds['playground_area'] == playgrounds['playground_area'].max()])
 
-ax = sns.displot(data=playgrounds, x="playground_area",  kind='hist')
+ax = sns.displot(data=playgrounds, x="playground_area",  kind='hist', stat='percent')
 
-ax.set(xlabel='Playarea of playground [m²]', ylabel='Number of playgrounds')
-
+ax.set(xlabel='Playarea of playground [m²]', ylabel='Fraction of playgrounds [%]')
+plt.xlim(0, 7500)
 
 fig = plt.gcf().get_figure()
 fig.suptitle('Distribution of playarea across playgrounds')
